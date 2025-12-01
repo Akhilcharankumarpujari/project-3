@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Sudoku — Animated</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <h1>Sudoku — HTML · CSS · JavaScript</h1>
+
+      <div class="controls">
+        <label for="difficulty">Difficulty</label>
+        <select id="difficulty" title="Number of empty cells">
+          <option value="36">Easy</option>
+          <option value="45" selected>Medium</option>
+          <option value="52">Hard</option>
+        </select>
+
+        <button id="newBtn" class="btn">New Puzzle</button>
+        <button id="solveBtn" class="btn secondary">Solve</button>
+        <button id="checkBtn" class="btn secondary">Check</button>
+
+        <!-- Theme toggle (icon) -->
+        <button id="themeToggle" class="btn theme-btn" title="Toggle theme"><span id="themeIcon">🌙</span></button>
+      </div>
+    </header>
+
+    <main class="board-card">
+      <div id="board" class="board" aria-label="Sudoku board"></div>
+
+      <aside class="sidebar">
+        <div class="side-box">
+          <div class="top-row">
+            <button id="pencilToggle" class="btn">Pencil</button>
+            <div class="timer" id="timer">00:00</div>
+            <button id="pauseBtn" class="btn secondary">Pause</button>
+          </div>
+
+          <h3>Controls</h3>
+          <div class="kbd">
+            <button data-key="1" class="kbd-btn">1</button><button data-key="2" class="kbd-btn">2</button><button data-key="3" class="kbd-btn">3</button>
+            <button data-key="4" class="kbd-btn">4</button><button data-key="5" class="kbd-btn">5</button><button data-key="6" class="kbd-btn">6</button>
+            <button data-key="7" class="kbd-btn">7</button><button data-key="8" class="kbd-btn">8</button><button data-key="9" class="kbd-btn">9</button>
+            <button data-key="0" class="kbd-btn">Erase</button>
+            <button id="hintBtn" class="kbd-btn">Hint</button>
+          </div>
+
+          <p class="meta">Click a cell then use the number buttons or keyboard. When <strong>Pencil</strong> is active, numbers toggle candidates (small 3×3 grid). Backspace/Delete erases.</p>
+        </div>
+
+        <div class="side-box">
+          <h3>Status</h3>
+          <div id="status">Ready</div>
+          <div class="meta-row">
+            <div class="mistakes">Mistakes: <span id="mistakeCount">0</span></div>
+            <label class="auto-clear">
+              <input type="checkbox" id="autoClearWrong" checked /> Auto-clear wrong
+            </label>
+          </div>
+        </div>
+      </aside>
+    </main>
+
+  </div>
+
+  <!-- Confetti canvas overlay -->
+  <canvas id="confetti-canvas" aria-hidden="true"></canvas>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
+
